@@ -19,8 +19,8 @@ The different tools are accessible via the `Client` class.
 
 ### selections2images
 
-`Client.selectionsimages` saves selections as new images.
+Use `Client.selections2images` to save selections as new images.
 
 ## To dos
 
- -[ ] add docs
+ - [ ] add docs
