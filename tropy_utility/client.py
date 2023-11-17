@@ -23,7 +23,7 @@ class Client:
     """ Standalone client. """
 
     def __post_init__(self):
-        logging.basicConfig(level=logging.DEBUG,
+        logging.basicConfig(level=logging.INFO,
                             format="%(asctime)s %(levelname)s:%(name)s:%(message)s",
                             handlers=[logging.FileHandler(f"tropy_utility_{time.strftime('%Y%m%d-%H%M%S')}.log"),
                                       logging.StreamHandler(),
@@ -43,7 +43,7 @@ class Client:
         :param tropy_file_path: complete path to Tropy export file including file extension
         :param images_dir: the directory of the images corresponding to the Tropy export
         :param selections_dir: the directory where the selections are to be saved
-        :param flag:
+        :param flag: not yet implemented
         """
 
         try:
@@ -58,27 +58,21 @@ class Client:
 
         for item in tropy["@graph"]:
             if flag is not None:
-                pass  # TODO: implement flag via tag
+                pass  # TODO: select which photos to handle via tag flag
             try:
                 for photo in item["photo"]:
-                    selection_counter = 1
-                    image_name = photo["path"].split("\\")[-1]
-
-                    for selection in photo["selection"]:
+                    image_name = photo["filename"]
+                    for index, selection in enumerate(photo["selection"], start=1):
                         x = selection["x"]
                         y = selection["y"]
                         w = selection["width"]
                         h = selection["height"]
                         image = Image.open(f"{images_dir}/{image_name}")
                         selection_image = image.crop((x, y, x + w, y + h))
-                        selection_image_name = f"{image_name.split('.')[0]}_selection_{selection_counter}.{image_name.split('.')[-1]}"
+                        selection_image_name = f"{image_name.split('.')[0]}_selection_{index}.{image_name.split('.')[-1]}"
                         selection_image.save(fp=f"{selections_dir}/{selection_image_name}")
-                        selection_counter += 1
-                        logging.info(f"{item['title']}'s {selection_image_name} saved to {selections_dir}.")
+                        logging.info(f"{item['title']}: {selection_image_name} saved to {selections_dir}.")
+            except KeyError:
+                logging.exception(f"Something went wrong with {item['title']}.")
             except Exception as e:
                 raise e
-
-
-Client().selections2images(tropy_file_path=f"{SAMPLE}/tropy_project.json",
-                           images_dir=SAMPLE,
-                           selections_dir=SAMPLE)
