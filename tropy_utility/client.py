@@ -8,14 +8,7 @@ from PIL import Image
 from tropy_utility.utility import Utility
 import json
 import logging
-import os.path
 import time
-
-DIR = os.path.dirname(__file__)
-PARENT_DIR = os.path.dirname(os.path.dirname(__file__))
-SAMPLE = f"{PARENT_DIR}/sample"
-DATA = f"{PARENT_DIR}/data"
-TESTS = f"{PARENT_DIR}/tests"
 
 
 @dataclass
@@ -38,12 +31,13 @@ class Client:
                           flag: str = None) -> None:
         """ Save all selections of all images of a Tropy project as new images.
 
-        For an item with image i, the selection j will be saved as image_i_selection_j.
+        For an item with image i, the selection j will be saved as image_i_selection_j. Select a subset of items via
+        the flag parameter.
 
         :param tropy_file_path: complete path to Tropy export file including file extension
         :param images_dir: the directory of the images corresponding to the Tropy export
         :param selections_dir: the directory where the selections are to be saved
-        :param flag: not yet implemented
+        :param flag: only images of items with this tag will be processed, defaults to None
         """
 
         try:
@@ -58,7 +52,11 @@ class Client:
 
         for item in tropy["@graph"]:
             if flag is not None:
-                pass  # TODO: select which photos to handle via tag flag
+                try:
+                    if flag not in item["tag"]:
+                        continue
+                except KeyError:
+                    continue
             try:
                 for photo in item["photo"]:
                     image_name = photo["filename"]
