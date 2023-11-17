@@ -25,7 +25,24 @@ class Client:
         logging.info(f"Started Client.")
 
     @staticmethod
-    def selections2images(tropy_file_path: str,
+    def _load_tropy_input(tropy_file_path: str) -> dict:
+        """ Load Tropy project file input.
+
+        :param tropy_file_path: complete path to Tropy export file including file extension
+        """
+
+        try:
+            return Utility.load_json(file_path=tropy_file_path)
+        except FileNotFoundError:
+            logging.critical(f"Invalid 'tropy_file_path' parameter: file '{tropy_file_path}' not found!")
+            raise
+        except json.JSONDecodeError:
+            logging.critical(
+                f"Invalid 'tropy_file_path' parameter: file '{tropy_file_path}' is not a valid Tropy export file!")
+            raise
+
+    def selections2images(self,
+                          tropy_file_path: str,
                           images_dir: str,
                           selections_dir: str,
                           flag: str = None) -> None:
@@ -40,15 +57,7 @@ class Client:
         :param flag: only images of items with this tag will be processed, defaults to None
         """
 
-        try:
-            tropy = Utility.load_json(file_path=tropy_file_path)
-        except FileNotFoundError:
-            logging.critical(f"Invalid 'tropy_file_path' parameter: file '{tropy_file_path}' not found!")
-            raise
-        except json.JSONDecodeError:
-            logging.critical(
-                f"Invalid 'tropy_file_path' parameter: file '{tropy_file_path}' is not a valid Tropy export file!")
-            raise
+        tropy = self._load_tropy_input(tropy_file_path=tropy_file_path)
 
         for item in tropy["@graph"]:
             if flag is not None:
@@ -61,12 +70,8 @@ class Client:
                 for photo in item["photo"]:
                     image_name = photo["filename"]
                     for index, selection in enumerate(photo["selection"], start=1):
-                        x = selection["x"]
-                        y = selection["y"]
-                        w = selection["width"]
-                        h = selection["height"]
                         image = Image.open(f"{images_dir}/{image_name}")
-                        selection_image = image.crop((x, y, x + w, y + h))
+                        selection_image = image.crop((selection["x"], selection["y"], selection["x"] + selection["width"], selection["y"] + selection["height"]))
                         selection_image_name = f"{image_name.split('.')[0]}_selection_{index}.{image_name.split('.')[-1]}"
                         selection_image.save(fp=f"{selections_dir}/{selection_image_name}")
                         logging.info(f"{item['title']}: {selection_image_name} saved to {selections_dir}.")
