@@ -24,3 +24,5 @@ Use `Client.selections2images` to save selections as new images.
 ## To dos
 
  - [ ] add docs
+ - [ ] add CITATION.cff
+ - [ ] initial release
