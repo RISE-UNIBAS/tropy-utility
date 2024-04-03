@@ -6,7 +6,6 @@ from __future__ import annotations
 from tropy_utility.client import Client
 import os.path
 
-
 DIR = os.path.dirname(__file__)
 
 Client().items2transkribus(tropy_file_path=f"{DIR}/tropy_project.json",

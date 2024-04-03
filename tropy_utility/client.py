@@ -97,7 +97,7 @@ class Client:
         """ Create a folder for each Tropy item that can be ingested into Transkribus.
 
         The aim is to have one Transkribus document per Tropy item. Ingest the folders with the Transkribus FTP Client.
-        Folder resp. document names are item titles (if any).
+        Folder resp. document names are item titles (if any) or the item number otherwise.
 
         :param tropy_file_path: complete path to Tropy export file including file extension
         :param images_dir: the input directory of the images corresponding to the Tropy export
