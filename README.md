@@ -24,6 +24,5 @@ Use `Client.selections2images` to save selections of images as new images.
 
 ## To dos
 
- - [ ] add CITATION.cff
  - [ ] set up Zenodo integration
  - [ ] initial release
