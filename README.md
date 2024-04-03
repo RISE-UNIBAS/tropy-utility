@@ -11,7 +11,7 @@ This software was created by the University of Basel's Research and Infrastructu
 Note that there are [different versions of this software](https://github.com/RISE-UNIBAS/tropy-utility/releases), see the [changelog](https://github.com/RISE-UNIBAS/tropy-utility/blob/main/CHANGELOG.md) for details.
 
 - Python package in [`/tropy-utility`](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/metagrapho_tropy)
-- documentation here and in [`/docs`](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/docs)
+- documentation [here](https://rise-unibas.github.io/tropy-utility/) and in [`/docs`](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/docs)
 - sample scripts and data for each tool in [`/samples`](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/samples)
 
 ## Tools
