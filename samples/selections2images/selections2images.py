@@ -9,6 +9,6 @@ import os.path
 
 DIR = os.path.dirname(__file__)
 
-Client().selections2images(tropy_file_path="tropy_project.json",
+Client().selections2images(tropy_file_path=f"{DIR}/tropy_project.json",
                            images_dir=DIR,
                            selections_dir=DIR)

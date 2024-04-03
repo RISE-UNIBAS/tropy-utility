@@ -47,6 +47,7 @@
 <li><a class="reference internal" href="#">Documentation of tropy-utilty</a><ul>
 <li><a class="reference internal" href="#client-py">client.py</a></li>
 <li><a class="reference internal" href="#tropy_utility.client.Client"><code class="docutils literal notranslate"><span class="pre">Client</span></code></a><ul>
+<li><a class="reference internal" href="#tropy_utility.client.Client.items2transkribus"><code class="docutils literal notranslate"><span class="pre">Client.items2transkribus()</span></code></a></li>
 <li><a class="reference internal" href="#tropy_utility.client.Client.selections2images"><code class="docutils literal notranslate"><span class="pre">Client.selections2images()</span></code></a></li>
 </ul>
 </li>
@@ -91,6 +92,27 @@
 <dt class="sig sig-object py" id="tropy_utility.client.Client">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tropy_utility.client.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><a class="headerlink" href="#tropy_utility.client.Client" title="Permalink to this definition"></a></dt>
 <dd><p>Standalone client.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tropy_utility.client.Client.items2transkribus">
+<span class="sig-name descname"><span class="pre">items2transkribus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tropy_file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transkribus_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tropy_utility.client.Client.items2transkribus" title="Permalink to this definition"></a></dt>
+<dd><p>Create a folder for each Tropy item that can be ingested into Transkribus.</p>
+<p>The aim is to have one Transkribus document per Tropy item. Ingest the folders with the Transkribus FTP Client.
+Folder resp. document names are item titles (if any).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tropy_file_path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – complete path to Tropy export file including file extension</p></li>
+<li><p><strong>images_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – the input directory of the images corresponding to the Tropy export</p></li>
+<li><p><strong>transkribus_dir</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – the target directory of the Transkribus export</p></li>
+<li><p><strong>flag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – only items with this tag will be processed, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="tropy_utility.client.Client.selections2images">
 <span class="sig-name descname"><span class="pre">selections2images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tropy_file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selections_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tropy_utility.client.Client.selections2images" title="Permalink to this definition"></a></dt>

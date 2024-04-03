@@ -21,6 +21,14 @@ The different tools are accessible via the `Client` class.
 ### selections2images
 
 Use `Client.selections2images` to save selections of images as new images.
+- Documentation [here](https://rise-unibas.github.io/tropy-utility/html/index.html#tropy_utility.client.Client.selections2images).
+- Sample script [here](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/samples/selections2images).
+
+### items2transkribus
+
+Use `Client.items2transkribus` to create folders for Tropy items that can be ingested into Transkribus as documents.
+- Documentation [here](https://rise-unibas.github.io/tropy-utility/html/index.html#tropy_utility.client.Client.items2transkribus).
+- Sample script [here](https://github.com/RISE-UNIBAS/tropy-utility/tree/main/samples/items2transkribus).
 
 ## To dos
 

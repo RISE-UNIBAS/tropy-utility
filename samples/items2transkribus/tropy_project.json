@@ -1,0 +1,111 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://tropy.org/v1/tropy#",
+    "template": {
+      "@type": "@id"
+    },
+    "photo": {
+      "@id": "https://tropy.org/v1/tropy#photo",
+      "@container": "@list"
+    },
+    "note": {
+      "@id": "https://tropy.org/v1/tropy#note",
+      "@container": "@list"
+    },
+    "selection": {
+      "@id": "https://tropy.org/v1/tropy#selection",
+      "@container": "@list"
+    },
+    "title": "http://purl.org/dc/elements/1.1/title",
+    "rights": "http://purl.org/dc/elements/1.1/rights",
+    "date": {
+      "@id": "http://purl.org/dc/elements/1.1/date",
+      "@type": "https://tropy.org/v1/tropy#date"
+    }
+  },
+  "@graph": [
+    {
+      "@type": "Item",
+      "template": "https://tropy.org/v1/templates/generic",
+      "title": "image_1",
+      "rights": "Public Domain",
+      "photo": [
+        {
+          "@type": "Photo",
+          "checksum": "c1c393061378eae53df3f75db8fbd752",
+          "color": "rgb(232,216,184,1)",
+          "density": null,
+          "filename": "image_1.png",
+          "mimetype": "image/png",
+          "orientation": 1,
+          "page": 0,
+          "path": "C:\\Users\\Max\\PycharmProjects\\tropy-utility\\sample\\image_1.png",
+          "protocol": "file",
+          "size": 7616664,
+          "template": "https://tropy.org/v1/templates/photo",
+          "angle": 0,
+          "brightness": 0,
+          "contrast": 0,
+          "height": 3685,
+          "hue": 0,
+          "mirror": false,
+          "negative": false,
+          "saturation": 0,
+          "sharpen": 0,
+          "width": 2332,
+          "title": "image_1",
+          "date": "2023-11-16T20:36:15.686Z",
+          "selection": [
+            {
+              "@type": "Selection",
+              "template": "https://tropy.org/v1/templates/selection",
+              "x": 1198,
+              "y": 2461,
+              "angle": 0,
+              "brightness": 0,
+              "contrast": 0,
+              "height": 507,
+              "hue": 0,
+              "mirror": false,
+              "negative": false,
+              "saturation": 0,
+              "sharpen": 0,
+              "width": 566
+            },
+            {
+              "@type": "Selection",
+              "template": "https://tropy.org/v1/templates/selection",
+              "x": 851,
+              "y": 3203,
+              "angle": 0,
+              "brightness": 0,
+              "contrast": 0,
+              "height": 239,
+              "hue": 0,
+              "mirror": false,
+              "negative": false,
+              "saturation": 0,
+              "sharpen": 0,
+              "width": 535,
+              "note": [
+                {
+                  "@type": "Note",
+                  "text": {
+                    "@value": "Pink Oak",
+                    "@language": "en"
+                  },
+                  "html": {
+                    "@value": "<p>Pink Oak</p>",
+                    "@language": "en"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "1.15.2"
+}
